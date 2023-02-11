@@ -2,11 +2,14 @@ body {
 background-color: #2b2b2b;
 font-family: 'Silkscreen';
 color: #ffffff;
-font-size: 3vw;
 text-align: center;
 }
 
-title {
+h2 {
 	color: #56ff00;
+}
+
+p {
+	color: #00d2ff;
 }
 
