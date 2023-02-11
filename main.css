@@ -11,5 +11,6 @@ h2 {
 
 p {
 	color: #00d2ff;
+	max-width: 13ch;
 }
 
