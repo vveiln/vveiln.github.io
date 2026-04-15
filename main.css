@@ -1,27 +1,206 @@
-body {
-background-color: #2b2b2b;
-font-size: 1.4vw;
-font-family: 'Silkscreen';
-color: #ffffff;
-text-align: left;
-max-width: 60%;
-margin: auto;
+/* ===== CSS Variables ===== */
+:root {
+    --bg: #0b0f14;
+    --surface: #111823;
+    --text: #e6edf3;
+    --text-muted: #9aa4b2;
+    --accent: #56ff00;      /* Keep your neon green! */
+    --link: #00d2ff;
+    --link-hover: #7dd3fc;
+    --border: #1f2a37;
 }
 
-h2 {
-	text-align: center;
-	color: #56ff00;
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+}
 
+body {
+    background-color: var(--bg);
+    font-family: 'Silkscreen', sans-serif;
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* ===== Navigation ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+}
+
+.nav-brand a {
+    color: var(--text);
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+/* ===== Layout ===== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+/* ===== Typography ===== */
+h2 {
+    color: var(--accent);
+    text-align: left;
+    margin-bottom: 24px;
 }
 
 p {
-	color: #00d2ff;
+    color: var(--text-muted);
+    margin-bottom: 16px;
 }
 
 a {
-	color: #ff00ff;
+    color: var(--link);
+    text-decoration: none;
 }
 
-img {
-	float: right;
+a:hover {
+    color: var(--link-hover);
+}
+
+/* ===== Lists ===== */
+ul {
+    color: var(--text-muted);
+    padding-left: 24px;
+}
+
+.work-list li {
+    margin-bottom: 12px;
+}
+
+/* ===== Blog ===== */
+.intro {
+    margin-bottom: 32px;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.2s ease;
+}
+
+.post-card:hover {
+    border-color: var(--accent);
+}
+
+.post-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+
+.post-card h3 a {
+    color: var(--text);
+}
+
+.post-meta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0 0 12px;
+}
+
+.post-excerpt {
+    margin: 0;
+}
+
+/* ===== Single Post ===== */
+.post {
+    max-width: 650px;
+}
+
+.post-content {
+    margin: 32px 0;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--text-muted);
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .container {
+        padding: 24px 16px;
+    }
+}
+
+.post-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.post-card-link:hover .post-card {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}
+
+mark {
+    background: transparent;
+    color: #a78bfa;  
+    font-weight: 600;
+    padding: 0 2px;
 }

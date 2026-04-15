@@ -1,29 +1,54 @@
-<html>
-    <head>
-        <link rel="shortcut icon" href="favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <title> vveiln ✨ </title>
-        <h2> Hey there </h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>vveiln ✨</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="index.html">vveiln ✨</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">About me</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+        </ul>
+    </nav>
 
-        <img src="pixel_photo.jpg" alt="A photo of me, blurred" width=30%>
+    <main class="container">
+        <section class="about">
+            <h2>Hey there</h2>
+            
+            <p>👋 My name is <mark>Yulia Khalniyazova</mark>, I'm a cryptography researcher and protocol developer with background in engineering and computer systems.</p>
+            
+            <p>💾 The last few years I've been doing cryptographic research trying to solve various problems in the context of distributed systems and desinging a cryptographic component known as the <a href="https://zenodo.org/records/10689620">resource machine</a>. </p>
+            <p>🤓  Professionally, I'm interested in <u>cryptography</u> and <u>security</u> more generally, 
+            I enjoy engineering and solving puzzles, <u>architecting secure components</u> and <u>designing cryptographic protocols</u> of diverse levels of abstraction. While this list doesn't sound particularly limiting, 
+            I must mention that I'm always up for expanding my expertise horizons and tackle new challenges.</p>
+            
+            <p>📚 I studied cryptography and information security, which combined extensive <u>mathematical education, low- and high-level engineering</u>, and exploring the fascinating world of <u>security</u> failures. </p>
+            <p>🎮 During my university years I played <u>CTFs</u>, the first few years more of the task-based kind, then leaning towards attack-defence in the last couple years. I do enjoy playing with crypto challenges such as cryptohack or do occasional advents of code, always regretting it around day twelve.</p>
 
-        <p> 👋 My name is <b> Yulia Khalniyazova</b>, I'm a cryptography researcher and protocol developer currently working at Heliax, developing Anoma protocol</p>
-        <p> 👩🏻‍💻 My professional interest lies in the area of cryptography in the context of distributed systems, but I’m a curious mind always up for exploring something new! </p>
-        <p> 💾 Here are a couple of things I’ve done working on Anoma:
-            <ul>
-                <li> Talk 📹: <a href="https://www.youtube.com/watch?v=72VsJj_c99M&ab_channel=ZeroKnowledge"> ZK9: Taiga - a dark forest for composable private applications</a></li>
-                <li> Report 📄: <a href="https://zenodo.org/record/8321167/"> Exploring Cryptographic Approaches to Enhance Privacy in Intent Solving</a></li> 
-                <li> Blogpost 📄: <a href="https://anoma.net/blog/privacy-in-tents"> Privacy in Tents: an overview of private solving strategies</a></li>
-                <li> Blogpost 📄: <a href="https://anoma.net/blog/demystifying-zexe/">Demystifying ZEXE</a></li>
-            </ul>
-        </p>
-        <p> 📚 I studied cryptography and information security in Tomsk State University (Tomsk, Russia) and currently live in Berlin, Germany </p>
-        <p> 💚 I love solving puzzles and writing code as much as doing research and writing articles and papers </p>
-        <p> ✉️  Contact me: yulia.khalniyazova@gmail.com</li>
-    </body>
+            <p> My personal interests include humans (everything about how our minds and bodies work), natural sciences in general, running, weight-lifting.
+
+            <p>🏠 My home is in Berlin, Germany.</p>
+
+            <p>🩶 I edited this page in vim 🩶</p>
+            
+            <p>✉️  You can contact me here: <a href="mailto:yulia.khalniyazova@gmail.com">yulia.khalniyazova@gmail.com</a></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Yulia Khalniyazova</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>

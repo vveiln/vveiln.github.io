@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../main.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>Disclaimer — vveiln ✨</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html">vveiln ✨</a></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">About me</a></li>
+            <li><a href="index.html" class="active">Blog</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="disclaimer-page">
+            <h2>Disclaimer</h2>
+            
+            <mark>Personal Opinions Only</mark>
+            <p>This blog contains my personal opinions and thoughts on technical topics. All content is published in a private capacity, not as part of any professional or business activity.</p>
+            
+            <mark>Private Capacity</mark>
+            <p>I am not acting in any commercial or business capacity. This blog is a personal project without monetization or commercial intent.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Yulia Khalniyazova</p>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
