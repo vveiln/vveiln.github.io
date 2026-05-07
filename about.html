@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>vveiln ✨</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="index.html">vveiln ✨</a></div>
+        <ul class="nav-links">
+            <li><a href="about.html" class="active">About me</a></li>
+            <li><a href="index.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="about">
+            <h2>Hey there</h2>
+            
+            <p>👋 My name is <mark>Yulia Khalniyazova</mark>, and I guess I like writing (I hope I published something by now. But if not - I didn't say I like publishing). If you wanna know more about me:
+ 
+            <details>
+            <summary>I work as a cryptography researcher and protocol developer</summary>
+            <p>💾 The last few years I've been doing cryptographic research trying to solve various problems in the context of distributed systems and desinging a cryptographic component known as the <a href="https://zenodo.org/records/10689620">resource machine</a> </p>
+            <p>🤓  Professionally, I'm most interested in <u>cryptography</u> and <u>security</u> more generally. 
+            I enjoy <u>architecting</u> secure components, <u>designing</u> cryptographic protocols, and <u>engineering</u> (something fun, preferably)</p>
+
+            </details>
+
+            <details>
+                <summary>I studied information security and cryptography. I have background in engineering and computer systems </summary>
+            <p>📚 My education combined <u>mathematical education, low- and high-level engineering</u>, and the fascinating world of security failures </p>
+            <p>🎮 During my university years I enjoyed playing <u>CTFs</u>. I played with cryptopals, cryptohack, project Euler, advent of code. I just love solving puzzles 💚  </p>
+            </details>
+           
+            <details>
+            <summary> And here is a bit about me in other contexts </summary>
+            
+            <p> 💎 My personal interests include humans (everything about how our minds and bodies work) and cats, natural sciences, non-modern visual art, sports. I love learning 🤍  </p>
+
+            <p>🏠 My home is in Berlin, Germany 🇩🇪</p>
+
+            <p>🩶 I edited this page in vim (please don't judge mee) 🩶</p>
+            </details>
+
+            
+            <p>✉️  You can contact me here: <a href="mailto:yulia.khalniyazova@gmail.com">yulia.khalniyazova@gmail.com</a></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Yulia Khalniyazova</p>
+        <small>Favicon: "Black Heart" from Twemoji by Twitter, Inc., licensed under CC BY 4.0</small>        
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

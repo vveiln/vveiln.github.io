@@ -204,3 +204,51 @@ mark {
     font-weight: 600;
     padding: 0 2px;
 }
+
+/* ===== Details/Summary Styling ===== */
+details {
+    margin: 16px 0;
+}
+
+summary {
+    cursor: pointer;
+    padding: 8px 0;
+    font-weight: 600;
+    color: var(--text-muted);
+    list-style: none;
+    transition: color 0.2s ease;
+}
+
+summary:hover {
+    color: var(--accent);
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 10px;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+summary:hover::before {
+    color: var(--accent);
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
+    color: var(--accent);
+}
+
+details > p,
+details > div {
+    padding: 8px 0 8px 20px;
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
