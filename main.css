@@ -17,7 +17,7 @@
 
 body {
     background-color: var(--bg);
-    font-family: 'Silkscreen', sans-serif;
+    font-family: 'Oxanium', sans-serif;
     color: var(--text);
     margin: 0;
     padding: 0;
@@ -180,7 +180,7 @@ ul {
         flex-direction: column;
         gap: 12px;
     }
-    
+
     .container {
         padding: 24px 16px;
     }
@@ -200,10 +200,12 @@ ul {
 
 mark {
     background: transparent;
-    color: #a78bfa;  
+    color: #a78bfa;
     font-weight: 600;
     padding: 0 2px;
 }
+
+
 
 /* ===== Details/Summary Styling ===== */
 details {
