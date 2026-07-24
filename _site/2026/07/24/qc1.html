@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet"  type="text/css" href="/main.css" media = "screen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
+    <title>Blog — vveiln ✨</title>
+</head>
+
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-brand"><a href="/index.html">vveiln ✨</a></div>
+    <ul class="nav-links">
+        <li><a href="/about.html">About me</a></li>
+        <li><a href="/index.html" class="active">Blog</a></li>
+    </ul>
+</nav>
+
+
+<main class="container">
+<article class="post">
+
+    <h2> Quantum Computing Pt. I: quantum cheat sheet </h2>
+    <p class="post-meta">Published on 24 July 2026</p>
+
+    <aside>I wrote a series of quantum computing posts as an attempt to structure my understanding of it as I learn. I'm not a quantum computing expert, the explanations are simplified and may contain mistakes.</aside>
+
+<p>In order to effectively discuss quantum computers, here is a quantum cheat sheet that explains most main concepts.</p>
+<h2 id="a-quantum-system">A quantum system</h2>
+
+<p>Imagine we received a package with a quantum system inside. We unpack it. We don’t yet understand what it is, but we got it in our hands. We can study it. What we, curious minds, want to do, is to describe it.</p>
+
+<p>First, we notice that it consists of individual units called <strong>qudits</strong> (yes, quDits). Qudits have states that we can measure. After playing with a bunch of qudits for some time we infer that:</p>
+<ul>
+  <li>a qudit measurement can only give <code class="language-plaintext highlighter-rouge">n</code> possible values</li>
+  <li>measuring seemingly identical qudits at the same time may give different results:
+    <ul>
+      <li>at certain times, we get the same state from many qudits - they all behave the same way</li>
+      <li>at other times, the measurement outcome seems completely random</li>
+    </ul>
+  </li>
+</ul>
+
+<p>After measuring qudits many times, we get some data that contains:</p>
+<ul>
+  <li>time of the measurement</li>
+  <li>qudit id (we enumerated them)</li>
+  <li>measurement outcome</li>
+</ul>
+
+<p>For any given moment in time, we can compute the probability of getting a certain measurement outcome.</p>
+
+<p>We keep playing with qudits, keep deriving some rules. Eventually we notice that qudits described like that behave following the rules of vector algebra in an <code class="language-plaintext highlighter-rouge">n</code>-dimensional Hilbert space. We are very good with math, apparently.</p>
+
+<p>We also notice that the math itself doesn’t change for different <code class="language-plaintext highlighter-rouge">n</code>, only the numbers. If <code class="language-plaintext highlighter-rouge">n = 2</code>, we call qudits <strong>qubits</strong>. That is what we use to build quantum computers.</p>
+<h3 id="qubits">Qubits</h3>
+
+<p>A <strong>qubit</strong> is a quantum bit. When measured, it can be found in one of two possible states: <strong>ground</strong> (zero) or <strong>excited</strong> (one).</p>
+
+<p>When we prepare the system, we put the qubits in the <strong>init state</strong>. Usually it is the ground state. Then we perform some computations using qubits and then we <strong>measure</strong> and then determine what it means. Until we measure, we don’t exactly know the qubit’s state, it is like tasting food we are cooking: you never know if it is gonna be too much or too little salt. In classical systems, you can measure anything at all times. The soup stays too salty no matter how many times you try it, damn it. In a quantum system, measuring gives you the value of the measured qubit and also messes everything up. So we got to be careful.</p>
+
+<p>How do measurement outcomes relate to the state before measurement?</p>
+
+<p>The way it works is that at any given time, if we measure a qubit, we will get either ground or excited state. But the act of measurement kinda <em>creates</em> this state. And before we measure, something very non-classical is happening.</p>
+
+<h4 id="wave-function">Wave function</h4>
+
+<p>Imagine that on the shoulders of the qubit, there is an angel and a demon. The angel thinks that the ground, relaxed state is better. The demon thinks that agitated, excited state is better. And they are actually fighting to prove a point. At any moment, one of them is winning. If one of them wins, then all measurements will always give us the state the winner was fighting for. But if we measure before the fight is over, the measurement outcome is unknown, but we know that the closer to winning a fighter is, the more likely we measure their preferred state.</p>
+
+<p>Now, the fight is actually..staged. The angel and demon just move following the script they wrote together. The script is called a <strong>wave function</strong>.</p>
+
+<h4 id="decoherence">Decoherence</h4>
+
+<p>Anyway, qubits are not actually qubits at all times. When we put a qubit in the init state, it is quantum and everything is good. But from that moment on, a classical timer starts ticking. Interaction with the environment makes qubits slowly turn into a non-quantum pumpkin that has no quantum properties.</p>
+
+<p>After that, we need to make it quantum again until it once again turns into a pumpkin. The amount of time it takes a fresh qubit to turn into a pumpkin is called <strong>decoherence time</strong>.</p>
+
+<p>We care about decoherence time because it breaks everything. Imagine running some program. You have some internal state, but this state slowly changes into something random?? This is not a way to perform reliable computations. So we need to make sure that whatever operations we perform on qubits, they are much faster than decoherence time. That will allow us to run a chunk of computation and get the results before it is pumpkin time.</p>
+
+<h4 id="quantum-computing">Quantum computing</h4>
+
+<p>The operations we perform on qubits we do with the help of <strong>quantum gates</strong>. It is the same idea as in classical computers: we have a fixed set of tiny circuits that we use as building blocks for big diverse circuits.</p>
+
+<p>To summarize, <strong>quantum computers</strong> allow us performing computations. We represent the desired computations as <strong>quantum circuits</strong>, which consist of <strong>quantum gates</strong>. We <strong>init</strong> the qubits and perform operations on qubits using <strong>quantum gates</strong> before <strong>decoherence</strong> causes decay of the state, and <strong>measure</strong> the state of some qubits at the end to get the result.</p>
+
+
+    <a href="/index.html" class="back-link">← Back to blog</a>
+
+</article>
+
+</main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Yulia Khalniyazova</p>
+        <small>Favicon: "Black Heart" from Twemoji by Twitter, Inc., licensed under CC BY 4.0</small>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+
+</body>
+</html>
