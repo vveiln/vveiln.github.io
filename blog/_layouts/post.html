@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+
+{% include navbar.html %}
+
+<main class="container">
+<article class="post">
+
+    <h2> {{ page.title }} </h2>
+    <p class="post-meta">Published on {{ page.date | date: "%d %B %Y" }}</p>
+
+    {{ content }}
+
+    <a href="{{ '/index.html' | relative_url }}" class="back-link">← Back to blog</a>
+
+</article>
+
+</main>
+
+{% include footer.html %}
+
+</body>
+</html>
