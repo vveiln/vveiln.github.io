@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<section class="blog">
+    <h2>Blog</h2>
+    <p class="intro">Thoughts on whatever stuff I find interesting.
+        <a href="disclaimer.html">Personal opinions only.</a>
+    </p>
+    <br>
+
+    {% for post in site.posts %}
+
+        <a href="{{ post.url | relative_url }}">
+            <article class="post-card">
+                <h3> {{post.title }} </h3>
+                    <p class="post-meta">Published on {{ post.date | date: "%d %B %Y" }}</p>
+                    <p class="post-excerpt"> {{ post.description }} </p>
+            </article>
+        </a>
+        <br>
+
+    {% endfor %}

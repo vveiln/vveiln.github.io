@@ -8,6 +8,8 @@
     --link: #00d2ff;
     --link-hover: #7dd3fc;
     --border: #1f2a37;
+    --aside: #4A535E;
+    --header: #FF00FF;
 }
 
 /* ===== Base ===== */
@@ -87,6 +89,23 @@ a {
 
 a:hover {
     color: var(--link-hover);
+}
+
+b, strong {
+    color: var(--text);
+}
+
+aside {
+    color: var(--aside);
+    padding-left: 12px;
+}
+
+h3 {
+    color: var(--accent);
+}
+
+h4 {
+    color: var(--accent);
 }
 
 /* ===== Lists ===== */
@@ -205,8 +224,6 @@ mark {
     padding: 0 2px;
 }
 
-
-
 /* ===== Details/Summary Styling ===== */
 details {
     margin: 16px 0;
@@ -253,4 +270,21 @@ details > div {
     margin: 0;
     color: var(--text-muted);
     line-height: 1.6;
+}
+
+article table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+article th,
+article td {
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-muted);
+}
+
+article th {
+  font-weight: bold;
+  color: var(--accent);
 }
