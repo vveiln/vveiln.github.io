@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet"  type="text/css" href="/main.css" media = "screen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
+    <title>Blog — vveiln ✨</title>
+</head>
+
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-brand"><a href="/index.html">vveiln ✨</a></div>
+    <ul class="nav-links">
+        <li><a href="/about.html">About me</a></li>
+        <li><a href="/index.html" class="active">Blog</a></li>
+    </ul>
+</nav>
+
+
+<main class="container">
+<article class="post">
+
+    <h2> Quantum Computing Pt. II: classical vs quantum </h2>
+    <p class="post-meta">Published on 24 July 2026</p>
+
+    <aside>I wrote a series of quantum computing posts as an attempt to structure my understanding of it as I learn. I'm not a quantum computing expert, the explanations are simplified and may contain mistakes.</aside>
+
+<h2 id="what-is-a-bit">What is a bit?</h2>
+
+<p>A <strong>bit</strong>, or a classical bit, is a unit of information. We can think of bits as a yes/no answer to some question. We can combine these simple answers to answer more complex questions or infer answers to simpler questions from the answers to more complex ones. This will be <strong>boolean logic</strong>, which is a subfield of discrete math.</p>
+
+<p><strong>Boolean</strong> <strong>gates</strong> are little devices that perform boolean operations. Arranging boolean gates together results in all kinds of <strong>boolean circuits</strong> and enables classical computing.</p>
+
+<h3 id="lets-get-physical">Let’s get physical</h3>
+
+<p>How do we turn this abstraction into something real? What is happening inside computers?Which part of the abstraction do we implement?</p>
+
+<p>We implement boolean gates - they are the building blocks of the circuits.</p>
+
+<p>Boolean gates are made of <strong>transistors</strong> connected to each other in a specific way. There are multiple kinds of transistors but they all work similarly. A transistor is a piece of silicon that is split into layers. Different layers are infused with different atoms, kinda like vanilla and chocolate ice cream layered next to each other. Layering silicon infused with different kinds of atoms enables the physical functions of a transistor. Here is how it works: it is connected to a power source and also has an input and output, three “legs” in total (think of a three-legged silicon spider). If the signal on the input is high enough, the power is flowing through the output <sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+
+<p>Connecting transistors in different ways implements different boolean logics and different gates. Bits  themselves here are represented by the signal on the wires, high or low voltage level.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Abstraction</th>
+      <th>Physical</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bit</td>
+      <td>voltage level</td>
+    </tr>
+    <tr>
+      <td>no or yes</td>
+      <td>low voltage or high voltage</td>
+    </tr>
+    <tr>
+      <td>boolean gates</td>
+      <td>transistors connected in a specific way</td>
+    </tr>
+    <tr>
+      <td>boolean circuit</td>
+      <td>gates connected in a specific way</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that this representation applies to computation. For storage, bits are represented differently.</p>
+
+<h2 id="what-is-a-qubit">What is a qubit?</h2>
+
+<p>A qubit - a quantum bit - is also a unit of information. Measuring a bit can only give one or zero, measuring a qubit can only result in excited or ground state.</p>
+
+<p>A system of bits is modeled as a boolean space with boolean logic rules. A system of qubits is mathematically modeled as a Hilbert space with linear algebra rules.</p>
+
+<p>Instead of boolean gates we have quantum gates, instead of classical circuits we have quantum circuits, and instead of classical computing we have quantum computing.</p>
+
+<p>Instead of classical physics rules, physical qubits follow the rules of quantum mechanics.</p>
+
+<h3 id="lets-get-physical-but-make-it-quantum">Let’s get physical, but make it quantum</h3>
+
+<p>Classical gates are implemented with transistors. For quantum gates, there are multiple options: trapped ions, superconducting circuits, photons, etc. There are so many options for a quantum computer because a proper quantum computer doesn’t really exist yet and there is no clear winner. Before we started using transistors for classical computers, other technologies for implementing classical gates were used too.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Classical bit</th>
+      <th>Quantum bit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 or 1</td>
+      <td>ground or excited</td>
+    </tr>
+    <tr>
+      <td>boolean logic</td>
+      <td>linear algebra</td>
+    </tr>
+    <tr>
+      <td>boolean gates</td>
+      <td>quantum gates</td>
+    </tr>
+    <tr>
+      <td>classical computing</td>
+      <td>quantum computing</td>
+    </tr>
+    <tr>
+      <td>classical physics</td>
+      <td>quantum mechanics</td>
+    </tr>
+    <tr>
+      <td>transistors</td>
+      <td>superconductors/ions/photons/etc</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="the-difference">The difference</h3>
+
+<p>So far, we see a clear analogy, but if it was just that, there would be no need in quantum computers. What is the difference?</p>
+
+<h3 id="superposition">Superposition</h3>
+
+<p>Let’s look into a quantum system and follow what is happening to a qubit’s state. We can split the state lifecycle into parts each of which has two phases:</p>
+<ol>
+  <li>pre-measurement</li>
+  <li>measurement</li>
+</ol>
+
+<p>Measurement in a quantum system doesn’t just show the existing value we didn’t see before, it <em>creates</em> a value. It <em>has</em> to create a value, because there simply <em>was no value</em> before. The qubit was in a <strong>superposition state</strong>.</p>
+
+<p>Superposition state is not a classical state. It can never be a measurement outcome, it only exists in pre-measurement world.</p>
+
+<p>People often say that superposition state is when the qubit is in both states at once - superposition. I find this interpretation confusing. I like to think of the superposition state as a space of opportunities for the future measured state outcome.</p>
+
+<p>Mathematically, a measurement outcome is a <strong>basis</strong> state (eigenvector of the measurement operator) - either ground or excited. The superposition state is described as a sum of the two basis states and coefficients standing before them. The coefficients are also not constant, they form a wave function that has different values at different times (angels and demons fighting, remember?). They also can be used to compute the probabilities of getting basis states if we were to measure the qubit in that moment.</p>
+
+<p>Anyway, this property of a qubit - being in a superposition state - is something that makes quantum computing interesting for us.</p>
+<h3 id="entanglement">Entanglement</h3>
+
+<p>Entanglement is another property of a quantum system that we are interested in. It is pretty easy to explain: two qubits are related in a way that when we measure one, we learn the value of the other automatically, no matter how far they are physically.</p>
+
+<p>Mathematically it means that we cannot describe the state of one qubit without involving the state of the other qubit. It is like there is a term of the form <code class="language-plaintext highlighter-rouge">xy</code> in the equation (where <code class="language-plaintext highlighter-rouge">x</code> is a part of the state of one qubit and <code class="language-plaintext highlighter-rouge">y</code> is a part of the state of the other qubit).</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Quantum computers are modelled after classical computers. We use binary values as the units of information and gates as building blocks. The differences between classical and quantum phenomenons - superposition and entanglement among them - is what makes quantum computers offer unique properties.</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:2">
+      <p>or the other way around <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+    <a href="/index.html" class="back-link">← Back to blog</a>
+
+</article>
+
+</main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Yulia Khalniyazova</p>
+        <small>Favicon: "Black Heart" from Twemoji by Twitter, Inc., licensed under CC BY 4.0</small>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet"  type="text/css" href="/main.css" media = "screen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
+    <title>Blog — vveiln ✨</title>
+</head>
+
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-brand"><a href="/index.html">vveiln ✨</a></div>
+    <ul class="nav-links">
+        <li><a href="/about.html">About me</a></li>
+        <li><a href="/index.html" class="active">Blog</a></li>
+    </ul>
+</nav>
+
+
+<main class="container">
+<article class="post">
+
+    <h2> Quantum Computing Pt. III: how to build a quantum computer </h2>
+    <p class="post-meta">Published on 24 July 2026</p>
+
+    <aside>I wrote a series of quantum computing posts as an attempt to structure my understanding of it as I learn. I'm not a quantum computing expert, the explanations are simplified and may contain mistakes.</aside>
+
+<p>Creating a working scallable architecture for a quantum computer is a work in progress and there are multiple approaches being explored. In this post I try to describe the structure of quantum computers more generally and explore two approaches for building quantum computers.</p>
+
+<h3 id="the-structure">The structure</h3>
+
+<p>I identified three functional components that make a quantum computer:</p>
+<ul>
+  <li><strong>quantum core</strong> - responsible for the quantum magic</li>
+  <li><strong>reinforcement layer</strong> - makes the core stable and reliable</li>
+  <li><strong>classical cortex</strong> - that is how we ask the quantum wizzard to do us a quantum favour - provides input and interprets the output</li>
+</ul>
+
+<p>The boundaries might be a bit fuzzy in practice, but I find this structure helpful for easier understanding of the system.</p>
+
+<h4 id="quantum-core">Quantum core</h4>
+
+<p><strong>Quantum core</strong> is the defining component of the architecture as it dictates what the reinforcement layer and classical cortex work with and constraints the ways they can work together.</p>
+
+<p>“Figuring out” the quantum core of the quantum computer involves the following aspects:</p>
+<ul>
+  <li>phyiscal:
+    <ul>
+      <li><strong>qubit implementation</strong> - this is the defining aspect of the defining component - quantum core -  so it is suuuuper defining. Basically it is about the physical system that will be called a qubit in our computer. Naturally, we are picking from the systems that do have quantum properties, such as trapped ions, superconducting circuits, etc. The choice of the qubit implementation tells us how to perform the measurement, what kind of isolation it requires and what should be optimized for.</li>
+      <li><strong>qubit manipulation</strong> - it is about how to poke a qubit when you want it to do something. These “something” can be measurement, putting it in the init state, etc.</li>
+      <li><strong>qubit connection</strong> - how we connect the qubits together to enable multi-qubit computations without too much noise ruining everything</li>
+    </ul>
+  </li>
+  <li>algorithmic:
+    <ul>
+      <li><strong>measurement</strong> and <strong>initialization</strong> - are the abstract algorithms that use qubit manipulation to measure the qubit state or to put it in a defined state</li>
+    </ul>
+  </li>
+</ul>
+
+<p>A list of criteria that defines what makes a proper quantum core is called <strong>DiVincenzo criteria</strong>. Here is my free interpretation of the list:</p>
+<ul>
+  <li>clear qubit definition</li>
+  <li>scalability without a significant loss of quantum properties</li>
+  <li>ability to initialize the state</li>
+  <li>ability to measure</li>
+  <li>long enough coherence times</li>
+  <li>a defined set of quantum gates that allows building any circuit</li>
+</ul>
+
+<p>There are also two criteria for quantum communication specifically, but I’ll skip those here.</p>
+
+<h4 id="reinforcement-layer">Reinforcement layer</h4>
+
+<p>The <strong>reinforcement</strong> layer is all about making the system stable:</p>
+<ul>
+  <li><strong>physical isolation</strong> - how to keep qubits noise free, increase the duration of the coherence period, keep qubits from affecting each other unintentionally, etc</li>
+  <li><strong>error correction</strong> - given that the quantum system is fragile and expensive, we would like to increase the fidelity of the system</li>
+</ul>
+
+<h4 id="classical-cortex">Classical cortex</h4>
+
+<p>The <strong>classical cortex</strong> aspects include:</p>
+<ul>
+  <li><strong>control system</strong> that we use to direct the computer into doing what we want. It includes the electronic part - how do we literally connect classical and non-classical pieces together</li>
+  <li><strong>interpretation software</strong> - we need a system that translates our lowly questions into something the quantum sage can understand and then translate the wise quantum words back</li>
+</ul>
+
+<h2 id="exploring-the-real-architectures">Exploring the real architectures</h2>
+
+<p>Now let’s take a look at two approaches for building quantum computers. We will consider it from the perspective of the suuuuperdefining component - qubit implementation.</p>
+
+<h3 id="architecture-ii-trapped-ions">Architecture II: Trapped ions</h3>
+
+<p>Ions are atoms that lost some electrons. We know that atoms are neutral: the nucleus is positively charged, and electrons balance it out by their negative charge. Removing some electrons leaves a positively charged <strong>ion</strong>.</p>
+
+<p>Because ions are charged, we can use electric field to control the position of an ion so that it doesn’t fly away. That is why this approach is called <strong>trapped</strong>.</p>
+
+<h4 id="encoding-qubits-and-states">Encoding qubits and states</h4>
+
+<p>One ion corresponds to one qubit. The excited and ground state of a qubit are encoded by an electron either being on a lower or higher energy level. Think of it as of a set of stairs - the higher up you are, the more energy you have. Electrons prefer to be on a lower step of the stairs.</p>
+
+<p>We can manipulate such qubits by shooting some energy at them (using photons) and push them to a higher energy level. They eventually fall back to the lower level and release the energy back - decoherence.</p>
+
+<h4 id="measurement">Measurement</h4>
+
+<p>A qubit in any state can absorb or emit energy. When it absorbs energy, its electron jumps up the stairs. When it emits energy, the electron jumps down the stairs. It takes different amount of energy to jump between different steps, and the qubit will only absorb the exact amount of energy that it can use to jump somewhere (no energy leftovers).</p>
+
+<p>This is the phenomenon we are basing the measurement strategy on:</p>
+<ol>
+  <li>shoot the amount of energy it takes to jump from ground to excited state</li>
+  <li>if the energy is absorbed, the qubit was in the ground state</li>
+  <li>if it is sent back, it is in the excited state (assuming the system is coherent)</li>
+</ol>
+
+<h4 id="reinforcement">Reinforcement</h4>
+
+<p>Trapped-ion-based qubits are small and the more we have, the bigger the negative effects are. We need to keep them cool to have less noise and make the little devils move slower. The more qubits we have, the more different frequencies we need, and, well, eventually it becomes hard to maintain. Photons we use for qubit manipulation can escape, meaning we might miss the cue and they can disturb the system.</p>
+
+<h4 id="fun-facts">Fun facts</h4>
+
+<p>Commonly used ions include barium, calcium, beryllium, strontium, and ytterbium. Ytterbium has higher coherehce times, and barium can be manipulated with photons from the visible spectrum.</p>
+
+<h3 id="architecture-ii-superconducting-circuits">Architecture II: Superconducting circuits</h3>
+
+<p>First things first: what is a superconductor?</p>
+
+<p>Imagine an atom. It has electrons that are stuck to the atom and tearing them off takes some energy. The less energy it takes to take them off, the more conducting the material is. Naturally, there are isolators (very hard to tear off), semiconductors (somewhat hard to tear off), conductors (quite easy). Unnaturally - in very low temperatures - some materials have infinite conductivity. These are called <strong>superconductors</strong>.</p>
+
+<p>All kinds of materials (compound and pure) can act as superconductors, but for quantum computers most common choices are metals like aluminum and niobium.</p>
+
+<p>Now, what is a circuit? Just a regular classical circuit like in regular classical computers, but with wires made of superconductors. Well, of course we can’t use just any circuit, but the word circuit here means that.</p>
+
+<p>Superconducting circuits seem like the most unusual qubit implementation to me because compared to other choices (ions, photons, etc) they are GIGANTIC. And because most (all?) other implementations are particles, people look at the superconducting circuits in a similar way - sometimes they are called artificial atoms.</p>
+
+<h4 id="encoding">Encoding</h4>
+
+<p>The superconducting circuit that corresponds to a single qubit is called a <strong>transmon</strong>. Such circuits contain capacitors and inductors - elements that don’t produce almost any heat - and an element called <strong>Josephson junction</strong> that makes the energy levels uneven, so we can define the ground and excited states like in atoms.</p>
+
+<p>Such qubits are manipulated using light as well. Transmons require way lower frequencies compared to ions, so we use microwave generators instead of lasers (that we use for ions) to do that.</p>
+<h4 id="measurement-1">Measurement</h4>
+
+<p>We use <strong>resonators</strong> to detect changes in the system. A resonator is a device that responds only to specific frequencies of the light. The <strong>resonant frequency</strong> - the frequency a resonator responds to - changes slightly depending on what state the qubit is in (the qubit and resonator are physically connected), so we can measure the qubit state by measuring the resonator state.</p>
+
+<h4 id="reinforcement-1">Reinforcement</h4>
+
+<p>First, we need really low temperatures for our system to work, and unlike other systems, it isn’t just to make it more stable and less noisy. Superconductivity only happens at low temperatures, so we need it to have any quantum properties at all.</p>
+
+<p>Similarly to the trapped ion situation, the more qubits we connect, the harder it is to control the system, and after a certain limit everything is fucked up completely. Puffff.</p>
+
+<p>Also, because these qubits are GIGANTIC, the decoherence times are LOW, so..we gotta be fast.</p>
+
+<p>And we also need to protect the system from the noise like always.</p>
+
+
+    <a href="/index.html" class="back-link">← Back to blog</a>
+
+</article>
+
+</main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Yulia Khalniyazova</p>
+        <small>Favicon: "Black Heart" from Twemoji by Twitter, Inc., licensed under CC BY 4.0</small>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+
+</body>
+</html>
