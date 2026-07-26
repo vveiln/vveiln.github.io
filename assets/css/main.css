@@ -288,3 +288,10 @@ article th {
   font-weight: bold;
   color: var(--accent);
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+}
